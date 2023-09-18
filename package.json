@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "name": "database",
+  "version": "1.0.0",
+  "description": "api with nodejs and express",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "author": "Gaba Godek",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

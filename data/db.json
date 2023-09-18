@@ -1,0 +1,109 @@
+[
+  {
+    "id": 1,
+    "name": "Latte",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 10,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Latte.svg"
+  },
+  {
+    "id": 2,
+    "name": "Orange espresso",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 15,
+    "salePrice": 10,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Espresso Romano.svg"
+  },
+  {
+    "id": 3,
+    "name": "Espresso",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 8,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Espresso.svg"
+  },
+  {
+    "id": 4,
+    "name": "Americano",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 15,
+    "salePrice": 13,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Americano.svg"
+  },
+  {
+    "id": 5,
+    "name": "Frappe",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 20,
+    "salePrice": 18,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Americano.svg"
+  },
+  {
+    "id": 6,
+    "name": "Cappuccino",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 15,
+    "salePrice": 10,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Latte.svg"
+  },
+  {
+    "id": 7,
+    "name": "Chai Latte",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 23,
+    "salePrice": 20,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Galao.svg"
+  },
+  {
+    "id": 8,
+    "name": "Mocha",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 20,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Macchiato.svg"
+  },
+  {
+    "id": 9,
+    "name": "Espresso Romano",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 10,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Espresso Romano.svg"
+  },
+  {
+    "id": 10,
+    "name": "Bonbon",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 10,
+    "salePrice": 9,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Lungo.svg"
+  },
+  {
+    "id": 11,
+    "name": "Cafe au lait",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 13,
+    "salePrice": 9,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Macchiato.svg"
+  },
+  {
+    "name": "Vienna Coffee",
+    "id": 12,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 13,
+    "salePrice": 9,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Galao.svg"
+  },
+  {
+    "name": "Macchiato",
+    "id": 13,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 10,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Macchiato.svg"
+  },
+  {
+    "id": 14,
+    "name": "Corretto",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 15,
+    "salePrice": 13,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Corretto.svg"
+  }
+]
