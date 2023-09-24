@@ -1,0 +1,24 @@
+import express from "express";
+
+
+
+const getAllUsers = (req, res) => {
+  res.status(500).json({
+    status: "err",
+    msg: "This route is not yet defined",
+  });
+};
+const getUser = (req, res) => {
+  res.status(500).json({
+    status: "err",
+    msg: "This route is not yet defined",
+  });
+};
+const createUser = (req, res) => {
+  res.status(500).json({
+    status: "err",
+    msg: "This route is not yet defined",
+  });
+};
+
+export { getAllUsers, getUser, createUser };
