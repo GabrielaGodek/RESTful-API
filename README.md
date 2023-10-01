@@ -1,32 +1,55 @@
 # Database for LazyCup app
-RESTful API with NodeJS and Express
+RESTful API with NodeJS and Express.
+It will power two applications:
+- [LazyCup](lazycup.vercel.app)
+- Custom CMS for updating available list of coffees
 
-## Available endpoints:
+## Features
+- Users can sign up and login to their accounts
+- Users can add, update or delete coffee
 
+## Technologies
+- NodeJS
+- ExpressJS
+- MongoDB
+- Mongoose
+
+## Available endpoints
+### Return all coffees
 `GET /coffees`
 
-#### Response
-All available coffees.
+---
+### Create coffee
+`POST /coffees`
 
 ---
-
+### Return returned coffee
 `GET /coffees/:id`
 
-#### Response
-Returns selected coffee.
-
 ---
 
+### Update returned coffee
 `PATCH /coffees/:id`
 
-#### Response
-Modify selected coffee
+---
+
+
+### Delete returned coffee
+`DELETE /coffees/:id`
+
+---
+### Return all registered users
+`GET /users/`
 
 ---
 
-`DELETE /coffees/:id`
+### Create user
+`POST /users`
 
-#### Response
-Remove selected coffee
+---
+### Return selected user
+`GET /users/:id`
+
+
 
 

@@ -1,79 +1,85 @@
-import { fileURLToPath } from "url";
-import { dirname } from "path";
-import { readFileSync, writeFile } from "fs";
+import { Coffee } from "../models/coffeeModel.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const coffees = JSON.parse(readFileSync(`${__dirname}/../data/db.json`));
-
-const getAllCoffees = (req, res) => {
-  res.status(200).json({
-    status: "success",
-    requestedAt: req.requestTime,
-    results: coffees.length,
-    data: { coffees },
-  });
-};
-const getCoffee = (req, res) => {
-  console.log(req.params);
-
-  const id = Number(req.params.id);
-  const coffee = coffees.find((el) => el.id === id);
-
-  if (!coffee) {
-    return res.status(404).json({
+const getAllCoffees = async (req, res) => {
+  const coffees = await Coffee.find();
+  try {
+    // console.log(coffees);
+    res.status(200).json({
+      status: "success",
+      data: { coffees },
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(404).json({
       status: "fail",
-      message: "Invalid ID",
+      message: err,
     });
   }
-
-  res.status(200).json({ status: "success", data: { coffee } });
 };
-const createCoffee = (req, res) => {
+const getCoffee = async (req, res) => {
+  try {
+    const coffee = await Coffee.findById(req.params.id);
+    if (!coffee) {
+      return res.status(404).json({
+        status: "fail",
+        message: "Invalid ID",
+      });
+    }
+    res.status(200).json({
+      status: "success",
+      data: { coffee },
+    });
+  } catch (err) {
+    console.log(`Upsik:: getCoffee func | ${err}`);
+  }
+};
+const createCoffee = async (req, res) => {
   // console.log(req.body)
-
-  const newID = coffees[coffees.length - 1].id + 1;
-  const newCoffee = Object.assign({ id: newID }, req.body);
-
-  coffees.push(newCoffee);
-  writeFile("../data/db.json", JSON.stringify(coffees), (err) => {
+  const newCoffee = new Coffee(req.body);
+  try {
+    await newCoffee.save();
     res.status(201).json({
       status: "success",
-      data: newCoffee,
+      data: {
+        coffee: newCoffee,
+      },
     });
-  });
+  } catch (err) {
+    console.log(`Upsik:: createCoffee func | ${err}`);
+  }
 };
-const updateCoffee = (req, res) => {
-  const id = Number(req.params.id);
-  const coffee = coffees.find((el) => el.id === id);
+const updateCoffee = async (req, res) => {
+  try {
+    const coffee = await Coffee.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+    await coffee.save();
+    res.status(200).json({
+      status: "success",
+      data: {
+        coffee,
+      },
+    });
+  } catch (err) {
+    console.log(`Upsik:: updateCoffee func | ${err}`);
+  }
+};
+const deleteCoffee = async (req, res) => {
+  try {
+    await Coffee.findByIdAndDelete(req.params.id);
 
-  if (!coffee) {
-    return res.status(404).json({
+    res.status(204).json({
+      status: "success",
+      data: null,
+    });
+  } catch (err) {
+    console.log(`Upsik:: deleteCoffee func | ${err}`);
+    res.status(404).json({
       status: "fail",
-      message: "Invalid ID",
+      message: err,
     });
   }
-  res.status(200).json({
-    status: "success",
-    data: {
-      coffee,
-    },
-  });
-};
-const deleteCoffee = (req, res) => {
-  const id = Number(req.params.id);
-  const coffee = coffees.find((el) => el.id === id);
-
-  if (!coffee) {
-    return res.status(404).json({
-      status: "fail",
-      message: "Invalid ID",
-    });
-  }
-  res.status(204).json({
-    status: "success",
-    data: null,
-  });
 };
 
 export { getAllCoffees, getCoffee, createCoffee, updateCoffee, deleteCoffee };

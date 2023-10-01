@@ -8,7 +8,7 @@ import {
 } from "./../controllers/coffeeController.js";
 
 const router = express.Router();
-router.route('/').get(getAllCoffees).get(createCoffee);
-router.route('/:id').get(getCoffee).get(updateCoffee).get(deleteCoffee);
+router.route("/").get(getAllCoffees).post(createCoffee);
+router.route("/:id").get(getCoffee).patch(updateCoffee).delete(deleteCoffee);
 
 export default router;

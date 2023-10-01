@@ -1,0 +1,95 @@
+[
+  {
+    "name": "Latte",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 10,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Latte.svg"
+  },
+  {
+    "name": "Orange espresso",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 15,
+    "salePrice": 10,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Espresso Romano.svg"
+  },
+  {
+    "name": "Espresso",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 8,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Espresso.svg"
+  },
+  {
+    "name": "Americano",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 15,
+    "salePrice": 13,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Americano.svg"
+  },
+  {
+    "name": "Frappe",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 20,
+    "salePrice": 18,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Americano.svg"
+  },
+  {
+    "name": "Cappuccino",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 15,
+    "salePrice": 10,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Latte.svg"
+  },
+  {
+    "name": "Chai Latte",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 23,
+    "salePrice": 20,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Galao.svg"
+  },
+  {
+    "name": "Mocha",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 20,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Macchiato.svg"
+  },
+  {
+    "name": "Espresso Romano",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 10,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Espresso Romano.svg"
+  },
+  {
+    "name": "Bonbon",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 10,
+    "salePrice": 9,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Lungo.svg"
+  },
+  {
+    "name": "Cafe au lait",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 13,
+    "salePrice": 9,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Macchiato.svg"
+  },
+  {
+    "name": "Vienna Coffee",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 13,
+    "salePrice": 9,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Galao.svg"
+  },
+  {
+    "name": "Macchiato",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 10,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Macchiato.svg"
+  },
+  {
+    "name": "Corretto",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 15,
+    "salePrice": 13,
+    "image": "https://raw.githubusercontent.com/GabrielaGodek/CoffeeShop-Database/3857a0bfefe77a005f618fd9a2bf9d2f131a0130/public/Corretto.svg"
+  }
+]

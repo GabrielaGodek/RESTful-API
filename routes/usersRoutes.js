@@ -8,7 +8,7 @@ import {
 
 const router = express.Router();
 
-router.route("/").get(getAllUsers).get(createUser);
+router.route("/").get(getAllUsers).post(createUser);
 router.route("/:id").get(getUser);
 
 export default router;
