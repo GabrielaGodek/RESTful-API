@@ -5,7 +5,9 @@
   "description": "api with nodejs and express",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./api/server.js"
+    "start": "nodemon ./src/server.js",
+    "vercel-build": "echo hello",
+    "build": "parcel build src/server.js --out-dir ./public --out-file bundle.js "
   },
   "author": "Gaba Godek",
   "license": "ISC",
@@ -13,8 +15,10 @@
     "node": "18.x"
   },
   "dependencies": {
+    "compression": "^1.7.4",
     "express": "^4.18.2",
     "mongoose": "^7.5.3",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "parcel": "^2.9.3"
   }
 }

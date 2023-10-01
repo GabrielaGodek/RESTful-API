@@ -1,5 +1,7 @@
 # Database for LazyCup app
 RESTful API with NodeJS and Express.
+
+
 It will power two applications:
 - [LazyCup](lazycup.vercel.app)
 - Custom CMS for updating available list of coffees

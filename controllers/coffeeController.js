@@ -3,13 +3,11 @@ import { Coffee } from "../models/coffeeModel.js";
 const getAllCoffees = async (req, res) => {
   const coffees = await Coffee.find();
   try {
-    // console.log(coffees);
     res.status(200).json({
       status: "success",
       data: { coffees },
     });
   } catch (err) {
-    console.log(err);
     res.status(404).json({
       status: "fail",
       message: err,
@@ -34,7 +32,6 @@ const getCoffee = async (req, res) => {
   }
 };
 const createCoffee = async (req, res) => {
-  // console.log(req.body)
   const newCoffee = new Coffee(req.body);
   try {
     await newCoffee.save();
