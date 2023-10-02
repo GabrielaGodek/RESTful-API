@@ -10,16 +10,17 @@ const app = express();
 
 const corsConfig = {
   origin: ["http://localhost:5173", "https://lazycup.vercel.app/"],
-  optionsSuccessStatus: 200
-}
+  optionsSuccessStatus: 200,
+};
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(compression());
-app.use(cors(corsConfig))
+app.use(cors(corsConfig));
 
 app.use("/", welcomeRoutes);
 app.use("/api/v1/users", usersRoutes);
 app.use("/api/v1/coffees", coffeesRoutes);
 
+export { app };
