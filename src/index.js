@@ -4,25 +4,22 @@ import coffeesRoutes from "../routes/coffeesRoutes.js";
 import usersRoutes from "../routes/usersRoutes.js";
 import welcomeRoutes from "../routes/welcomeRoutes.js";
 import compression from "compression";
+import cors from "cors";
 
 const app = express();
+
+const corsConfig = {
+  origin: ["http://localhost:5173", "https://lazycup.vercel.app/"],
+  optionsSuccessStatus: 200
+}
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
-  res.header("Access-Control-Allow-Origin", "https://lazycup.vercel.app/");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
 app.use(compression());
+app.use(cors(corsConfig))
 
 app.use("/", welcomeRoutes);
 app.use("/api/v1/users", usersRoutes);
 app.use("/api/v1/coffees", coffeesRoutes);
 
-export { app };
