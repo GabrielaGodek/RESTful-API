@@ -8,7 +8,7 @@
   },
   {
     "id": 2,
-    "name": "Orange espresso",
+    "name": "Orange espresso", 
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
     "price": 15,
     "salePrice": 10,

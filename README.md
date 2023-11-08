@@ -1,57 +1,37 @@
-# Database for LazyCup app
-RESTful API with NodeJS and Express.
+# RESTful API
 
+## Full CRUD operations and advance filtering
 
-It will power two applications:
-- [LazyCup](lazycup.vercel.app)
-- Custom CMS for updating available list of coffees
+### Installation Guide
 
-## Features
-- Users can sign up and login to their accounts
-- Users can add, update or delete coffee
+1. Clone this repository
+2. Run `npm install` to install all dependencies
+3. Run `tsc` to compile TypeScript code to JavaScript and create `dist` folder
 
-## Technologies
-- NodeJS
-- ExpressJS
-- MongoDB
-- Mongoose
+### Usage
 
-## Available endpoints
-### Return all coffees
-`GET /coffees`
+1. When `dist` folder is created, type `npm run start` to connect with MongoDB
+2. Connect to the API using Postman on port 3000
 
----
-### Create coffee
-`POST /coffees`
+### API Endpoints
 
----
-### Return returned coffee
-`GET /coffees/:id`
+| HTTP Verbs | Endpoints                                   | Action                                 |
+| ---------- | ------------------------------------------- | -------------------------------------- |
+| POST       | /api/v1/coffees                             | To create new a coffee                 |
+| GET        | /api/v1/coffees                             | To retrieve all available coffees      |
+| GET        | /api/v1/coffees/:id                         | To retrieve details of a single coffee |
+| PATCH      | /api/v1/coffees/:id                         | To edit the details of a single coffee |
+| DELETE     | /api/v1/coffees/:id                         | To delete a single coffee              |
+| GET        | /api/v1/coffees?price[lte]=11&name=Espresso | To search specific coffee by values    |
 
----
+### Technologies
 
-### Update returned coffee
-`PATCH /coffees/:id`
+- [NodeJS](https://nodejs.org/) This is a cross-platform runtime environment built on Chrome's V8 JavaScript engine used in running JavaScript codes on the server. It allows for installation and managing of dependencies and communication with databases.
+- [ExpressJS](https://www.expresjs.org/) This is a NodeJS web application framework.
+- [MongoDB](https://www.mongodb.com/) This is a free open source NOSQL document database with scalability and flexibility. Data are stored in flexible JSON-like documents.
+- [Mongoose ODM](https://mongoosejs.com/) This makes it easy to write MongoDB validation by providing a straight-forward, schema-based solution to model to application data.
 
----
-
-
-### Delete returned coffee
-`DELETE /coffees/:id`
-
----
-### Return all registered users
-`GET /users/`
-
----
-
-### Create user
-`POST /users`
-
----
-### Return selected user
-`GET /users/:id`
-
-
-
-
+### Authors
+Gabriela Godek
+### License
+This project is available for use under the MIT License.
