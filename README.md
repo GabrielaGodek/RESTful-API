@@ -4,7 +4,7 @@
 
 ### Installation Guide
 
-1. Clone this repository
+1. Clone this repository [here](https://github.com/GabrielaGodek/RESTful-API.git)
 2. Run `npm install` to install all dependencies
 3. Run `tsc` to compile TypeScript code to JavaScript and create `dist` folder
 
