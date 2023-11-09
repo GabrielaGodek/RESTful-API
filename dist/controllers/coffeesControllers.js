@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.aliasForBestsellers = exports.deleteCoffee = exports.createCoffees = exports.updateCoffee = exports.getCoffee = exports.getAllCoffees = void 0;
+exports.getCoffeeStats = exports.aliasForBestsellers = exports.deleteCoffee = exports.createCoffees = exports.updateCoffee = exports.getCoffee = exports.getAllCoffees = void 0;
 const coffeeModel_1 = require("../models/coffeeModel");
 const apiFeatures_1 = require("../utils/apiFeatures");
 const getAllCoffees = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
@@ -86,10 +86,39 @@ const deleteCoffee = (req, res, next) => __awaiter(void 0, void 0, void 0, funct
     catch (err) { }
 });
 exports.deleteCoffee = deleteCoffee;
-// aliases
+// alias
 const aliasForBestsellers = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     req.query.limit = '3';
     req.query.sort = 'salePrice,price';
     next();
 });
 exports.aliasForBestsellers = aliasForBestsellers;
+const getCoffeeStats = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const stats = yield coffeeModel_1.cofSchema.aggregate([
+            {
+                $match: { price: { $gte: 10 } }
+            },
+            {
+                $group: {
+                    _id: '$description',
+                    numOfCoffees: { $sum: 1 },
+                    avgPrice: { $avg: '$price' },
+                    minPrice: { $min: '$price' },
+                    maxPrice: { $max: '$price' },
+                }
+            },
+            {
+                $sort: {
+                    avgPrice: 1
+                }
+            }
+        ]);
+        res.json({
+            status: 'stats',
+            data: stats
+        });
+    }
+    catch (err) { }
+});
+exports.getCoffeeStats = getCoffeeStats;

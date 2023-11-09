@@ -4,7 +4,6 @@ import { cofSchema as CoffeeSchema, CoffeeObj } from '../models/coffeeModel';
 import { APIFeatures } from '../utils/apiFeatures'
 
 
-
 const getAllCoffees: RequestHandler = async (req, res, next) => {
     try {
         const coffeeModel: Model<CoffeeObj> = CoffeeSchema;
@@ -39,7 +38,6 @@ const getCoffee: RequestHandler<{ id: string }> = async (req, res, next) => {
     }
 }
 
-
 const updateCoffee: RequestHandler<{ id: string }> = async (req, res, next) => {
     try {
         const coffeeToUpdate = await CoffeeSchema.findByIdAndUpdate(req.params.id, req.body, {
@@ -54,7 +52,6 @@ const updateCoffee: RequestHandler<{ id: string }> = async (req, res, next) => {
 
     } catch (err) { }
 }
-
 
 const createCoffees: RequestHandler = async (req, res, next) => {
     const newCoffee = new CoffeeSchema(req.body)
@@ -80,11 +77,39 @@ const deleteCoffee: RequestHandler<{ id: string }> = async (req, res, next) => {
     } catch (err) { }
 }
 
-// aliases
+// alias
 const aliasForBestsellers: RequestHandler = async (req, res, next) => {
     (req.query.limit as string) = '3';
     (req.query.sort as string) = 'salePrice,price';
     next()
 }
 
-export { getAllCoffees, getCoffee, updateCoffee, createCoffees, deleteCoffee, aliasForBestsellers }
+const getCoffeeStats: RequestHandler = async (req, res, next) => {
+    try {
+        const stats = await CoffeeSchema.aggregate([
+            {
+                $match: { price: { $gte: 10 } }
+            },
+            {
+                $group: {
+                    _id: '$description',
+                    numOfCoffees: { $sum: 1 },
+                    avgPrice: { $avg: '$price' },
+                    minPrice: { $min: '$price' },
+                    maxPrice: { $max: '$price' },
+                }
+            },
+            {
+                $sort: {
+                    avgPrice: 1
+                }
+            }
+        ])
+        res.json({
+            status: 'stats',
+            data: stats
+        })
+    } catch (err) { }
+}
+
+export { getAllCoffees, getCoffee, updateCoffee, createCoffees, deleteCoffee, aliasForBestsellers, getCoffeeStats }
