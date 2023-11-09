@@ -1,17 +1,11 @@
-import { Document, Schema, model } from "mongoose";
-
-function includesImageExtension (name:string) {
-    return name.includes('svg')
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.cofSchema = void 0;
+const mongoose_1 = require("mongoose");
+function includesImageExtension(name) {
+    return name.includes('svg');
 }
-
-interface CoffeeObj extends Document{
-    name: Object,
-    description: Object,
-    price: Object,
-    salePrice: Object,
-    image: Object
-}
-const coffeeSchema:Schema = new Schema({
+const coffeeSchema = new mongoose_1.Schema({
     name: {
         type: String,
         require: [true, "Specify the name"],
@@ -43,13 +37,11 @@ const coffeeSchema:Schema = new Schema({
         trim: true,
         validate: [includesImageExtension, 'Should be an image']
     },
-}).pre('save', function(next) {
+}).pre('save', function (next) {
     if (!this.salePrice) {
-      this.salePrice = this.price;
+        this.salePrice = this.price;
     }
     next();
-  });
-
-const cofSchema = model<CoffeeObj>("Coffee", coffeeSchema)
-
-export { cofSchema, CoffeeObj }
+});
+const cofSchema = (0, mongoose_1.model)("Coffee", coffeeSchema);
+exports.cofSchema = cofSchema;

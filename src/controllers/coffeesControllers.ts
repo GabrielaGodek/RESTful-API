@@ -1,23 +1,15 @@
 import { RequestHandler } from 'express';
-import { cofSchema as CoffeeSchema } from '../models/coffeeModel';
+import { Model } from "mongoose";
+import { cofSchema as CoffeeSchema, CoffeeObj } from '../models/coffeeModel';
+import { APIFeatures } from '../utils/apiFeatures'
 
-// const coffeesData = JSON.parse(fs.readFileSync(path.resolve('src/db/db.json'), { encoding: 'utf-8' }))
+
 
 const getAllCoffees: RequestHandler = async (req, res, next) => {
     try {
-        const queryObj = {...req.query}
-        const excludedFields:string[] = ['page', 'sort', 'limit', 'fields']
-        excludedFields.forEach((el:string) => delete queryObj[el])
-        // console.log(queryObj.name)
-        
-
-        let queryStr = JSON.stringify(queryObj)
-        queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, match => `$${match}`)
-
-
-
-        const query = CoffeeSchema.find(JSON.parse(queryStr))
-        const coffeesData = await query
+        const coffeeModel: Model<CoffeeObj> = CoffeeSchema;
+        const filterFeature = new APIFeatures(coffeeModel.find(), req.query).filter().sort().fields().pagination()
+        const coffeesData = await filterFeature.query
 
         res.json({
             status: 'success',
@@ -88,4 +80,11 @@ const deleteCoffee: RequestHandler<{ id: string }> = async (req, res, next) => {
     } catch (err) { }
 }
 
-export { getAllCoffees, getCoffee, updateCoffee, createCoffees, deleteCoffee }
+// aliases
+const aliasForBestsellers: RequestHandler = async (req, res, next) => {
+    (req.query.limit as string) = '3';
+    (req.query.sort as string) = 'salePrice,price';
+    next()
+}
+
+export { getAllCoffees, getCoffee, updateCoffee, createCoffees, deleteCoffee, aliasForBestsellers }

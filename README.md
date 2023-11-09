@@ -15,14 +15,18 @@
 
 ### API Endpoints
 
-| HTTP Verbs | Endpoints                                   | Action                                 |
-| ---------- | ------------------------------------------- | -------------------------------------- |
-| POST       | /api/v1/coffees                             | To create new a coffee                 |
-| GET        | /api/v1/coffees                             | To retrieve all available coffees      |
-| GET        | /api/v1/coffees/:id                         | To retrieve details of a single coffee |
-| PATCH      | /api/v1/coffees/:id                         | To edit the details of a single coffee |
-| DELETE     | /api/v1/coffees/:id                         | To delete a single coffee              |
-| GET        | /api/v1/coffees?price[lte]=11&name=Espresso | To search specific coffee by values    |
+| HTTP Verbs | Endpoints                                     | Action                                         |
+| ---------- | --------------------------------------------- | ---------------------------------------------- |
+| POST       | /api/v1/coffees                               | To create new a coffee                         |
+| GET        | /api/v1/coffees                               | To retrieve all available coffees              |
+| GET        | /api/v1/coffees/:id                           | To retrieve details of a single coffee         |
+| PATCH      | /api/v1/coffees/:id                           | To edit the details of a single coffee         |
+| DELETE     | /api/v1/coffees/:id                           | To delete a single coffee                      |
+| GET        | /api/v1/coffees?price[lte]=11&name=Espresso   | To search specific coffee by values            |
+| GET        | /api/v1/coffees?sort=price                    | To sort results by price                       |
+| GET        | /api/v1/coffees?fields=name,description,price | To return only desired values not whole object |
+| GET        | /api/v1/coffees?page=2&limit=5                | To display results with pagination             |
+| GET        | /api/v1/coffees/bestsellers                   | To alias 3 cheapest coffee                     |
 
 ### Technologies
 
@@ -32,6 +36,9 @@
 - [Mongoose ODM](https://mongoosejs.com/) This makes it easy to write MongoDB validation by providing a straight-forward, schema-based solution to model to application data.
 
 ### Authors
+
 Gabriela Godek
+
 ### License
+
 This project is available for use under the MIT License.
