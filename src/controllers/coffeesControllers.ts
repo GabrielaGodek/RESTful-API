@@ -1,14 +1,15 @@
 import { RequestHandler } from 'express';
-import { Model } from "mongoose";
-import { cofSchema as CoffeeSchema, CoffeeObj } from '../models/coffeeModel';
+import { Model, Document } from "mongoose";
+import { cofSchema as CoffeeSchema, CoffeeDoc, CoffeeObj } from '../models/coffeeModel';
 import { APIFeatures } from '../utils/apiFeatures'
 
 
 const getAllCoffees: RequestHandler = async (req, res, next) => {
     try {
-        const coffeeModel: Model<CoffeeObj> = CoffeeSchema;
+        const coffeeModel: Model<CoffeeDoc> = CoffeeSchema;
         const filterFeature = new APIFeatures(coffeeModel.find(), req.query).filter().sort().fields().pagination()
         const coffeesData = await filterFeature.query
+        // console.log(await coffeeModel.find())
 
         res.json({
             status: 'success',
@@ -111,5 +112,7 @@ const getCoffeeStats: RequestHandler = async (req, res, next) => {
         })
     } catch (err) { }
 }
+
+
 
 export { getAllCoffees, getCoffee, updateCoffee, createCoffees, deleteCoffee, aliasForBestsellers, getCoffeeStats }

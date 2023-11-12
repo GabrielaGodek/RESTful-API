@@ -17,6 +17,7 @@ const getAllCoffees = (req, res, next) => __awaiter(void 0, void 0, void 0, func
         const coffeeModel = coffeeModel_1.cofSchema;
         const filterFeature = new apiFeatures_1.APIFeatures(coffeeModel.find(), req.query).filter().sort().fields().pagination();
         const coffeesData = yield filterFeature.query;
+        // console.log(await coffeeModel.find())
         res.json({
             status: 'success',
             coffees: coffeesData

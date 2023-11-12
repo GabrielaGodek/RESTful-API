@@ -1,20 +1,25 @@
 import { Document, Schema, model } from "mongoose";
 
-function includesImageExtension (name:string) {
-    return name.includes('svg')
+function includesImageExtension(name: string) {
+    return name.includes('svg');
 }
 
-interface CoffeeObj extends Document{
-    name: Object,
-    description: Object,
-    price: Object,
-    salePrice: Object,
-    image: Object
+interface CoffeeObj {
+    name: string;
+    description: string;
+    price: number;
+    salePrice?: number;
+    image: string;
 }
-const coffeeSchema:Schema = new Schema({
+
+interface CoffeeDoc extends CoffeeObj, Document {
+    priceDifference?: number;
+}
+
+const coffeeSchema = new Schema<CoffeeDoc>({
     name: {
         type: String,
-        require: [true, "Specify the name"],
+        required: [true, "Specify the name"],
         unique: true,
         trim: true
     },
@@ -43,13 +48,26 @@ const coffeeSchema:Schema = new Schema({
         trim: true,
         validate: [includesImageExtension, 'Should be an image']
     },
-}).pre('save', function(next) {
+}, {
+    toJSON: {
+        virtuals: true,
+    },
+    toObject: {
+        virtuals: true
+    }
+});
+
+coffeeSchema.pre('save', function (next) {
     if (!this.salePrice) {
-      this.salePrice = this.price;
+        this.salePrice = this.price;
     }
     next();
-  });
+});
 
-const cofSchema = model<CoffeeObj>("Coffee", coffeeSchema)
+coffeeSchema.virtual('priceDifference').get(function (this: CoffeeDoc) {
+    return this.price - (this.salePrice ? this.salePrice : this.price);
+});
 
-export { cofSchema, CoffeeObj }
+const cofSchema = model<CoffeeDoc>("Coffee", coffeeSchema);
+
+export { cofSchema, CoffeeDoc, CoffeeObj };

@@ -8,7 +8,7 @@ function includesImageExtension(name) {
 const coffeeSchema = new mongoose_1.Schema({
     name: {
         type: String,
-        require: [true, "Specify the name"],
+        required: [true, "Specify the name"],
         unique: true,
         trim: true
     },
@@ -37,11 +37,22 @@ const coffeeSchema = new mongoose_1.Schema({
         trim: true,
         validate: [includesImageExtension, 'Should be an image']
     },
-}).pre('save', function (next) {
+}, {
+    toJSON: {
+        virtuals: true,
+    },
+    toObject: {
+        virtuals: true
+    }
+});
+coffeeSchema.pre('save', function (next) {
     if (!this.salePrice) {
         this.salePrice = this.price;
     }
     next();
+});
+coffeeSchema.virtual('priceDifference').get(function () {
+    return this.price - (this.salePrice ? this.salePrice : this.price);
 });
 const cofSchema = (0, mongoose_1.model)("Coffee", coffeeSchema);
 exports.cofSchema = cofSchema;
