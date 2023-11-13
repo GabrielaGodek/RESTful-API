@@ -28,7 +28,20 @@ dbConnection.on("error", (err) => {
 });
 
 const port:number = 3000;
-app.listen(port, () => {
+const server = app.listen(port, () => {
     console.log(`App running on ${port}`);
 });
 
+process.on('unhandledRejection', (err:any) => {
+    console.log('unhandledRejection: ', err.name, err.message)
+    server.close(() => {
+        process.exit(1)
+    })
+})
+
+process.on('uncaughtException', (err:any) => {
+    console.log('uncaughtException: ', err)
+    server.close(() => {
+        process.exit(1)
+    })
+})

@@ -96,3 +96,4 @@ coffeeSchema.virtual('priceDifference').get(function () {
 });
 const cofSchema = (0, mongoose_1.model)("Coffee", coffeeSchema);
 exports.cofSchema = cofSchema;
+//# sourceMappingURL=coffeeModel.js.map

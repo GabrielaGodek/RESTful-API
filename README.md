@@ -26,7 +26,7 @@
 | GET        | /api/v1/coffees?sort=price                    | To sort results by price                       |
 | GET        | /api/v1/coffees?fields=name,description,price | To return only desired values not whole object |
 | GET        | /api/v1/coffees?page=2&limit=5                | To display results with pagination             |
-| GET        | /api/v1/coffees/bestsellers                   | To alias 3 cheapest coffee                     |
+| GET        | /api/v1/coffees/bestsellers                   | Alias for 3 cheapest coffee                    |
 
 ### Technologies
 

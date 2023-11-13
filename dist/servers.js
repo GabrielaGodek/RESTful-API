@@ -38,6 +38,19 @@ dbConnection.on("error", (err) => {
     console.error(`connection error: ${err}`);
 });
 const port = 3000;
-app_1.app.listen(port, () => {
+const server = app_1.app.listen(port, () => {
     console.log(`App running on ${port}`);
 });
+process.on('unhandledRejection', (err) => {
+    console.log('unhandledRejection: ', err.name, err.message);
+    server.close(() => {
+        process.exit(1);
+    });
+});
+process.on('uncaughtException', (err) => {
+    console.log('uncaughtException: ', err);
+    server.close(() => {
+        process.exit(1);
+    });
+});
+//# sourceMappingURL=servers.js.map

@@ -1,7 +1,8 @@
 import { RequestHandler } from 'express';
 import { Model, Document } from "mongoose";
-import { cofSchema as CoffeeSchema, CoffeeDoc, CoffeeObj } from '../models/coffeeModel';
+import { cofSchema as CoffeeSchema, CoffeeDoc } from '../models/coffeeModel';
 import { APIFeatures } from '../utils/apiFeatures'
+import ErrorHandler, { HttpStatusCode } from '../utils/errorHandler'
 
 
 const getAllCoffees: RequestHandler = async (req, res, next) => {
@@ -9,7 +10,6 @@ const getAllCoffees: RequestHandler = async (req, res, next) => {
         const coffeeModel: Model<CoffeeDoc> = CoffeeSchema;
         const filterFeature = new APIFeatures(coffeeModel.find(), req.query).filter().sort().fields().pagination()
         const coffeesData = await filterFeature.query
-        // console.log(await coffeeModel.find())
 
         res.json({
             status: 'success',
@@ -17,26 +17,22 @@ const getAllCoffees: RequestHandler = async (req, res, next) => {
             coffees: coffeesData
         })
     } catch (err) {
-        console.log(err)
+        next(new ErrorHandler('NOT FOUND', HttpStatusCode.NOT_FOUND, true, 'Data was not found'))
     }
 }
 
 const getCoffee: RequestHandler<{ id: string }> = async (req, res, next) => {
-    console.log(typeof req.params.id)
     try {
         const coffee = await CoffeeSchema.findById(req.params.id)
         if (!coffee) {
-            return res.json({
-                status: 'fail',
-                message: "Invalid ID"
-            })
+            return next(new ErrorHandler('BAD REQUEST', HttpStatusCode.BAD_REQUEST, true, 'Incorrect ID'))
         }
         res.json({
             status: 'success',
             coffees: coffee
         })
     } catch (err) {
-        console.log(err)
+        next(new ErrorHandler('BAD REQUEST', HttpStatusCode.BAD_REQUEST, true, 'Incorrect ID'))
     }
 }
 
@@ -52,7 +48,9 @@ const updateCoffee: RequestHandler<{ id: string }> = async (req, res, next) => {
             updatedCoffee: coffeeToUpdate
         })
 
-    } catch (err) { }
+    } catch (err) { 
+        next(new ErrorHandler('BAD REQUEST', HttpStatusCode.BAD_REQUEST, true, 'Incorrect fields'))
+    }
 }
 
 const createCoffees: RequestHandler = async (req, res, next) => {
@@ -64,7 +62,8 @@ const createCoffees: RequestHandler = async (req, res, next) => {
             addedCoffee: newCoffee
         })
     } catch (err) {
-        console.log(err)
+        // console.log(err)
+        next(new ErrorHandler('BAD REQUEST', HttpStatusCode.BAD_REQUEST, true, 'Incorrect or duplicate fields'))
     }
 }
 
@@ -76,10 +75,11 @@ const deleteCoffee: RequestHandler<{ id: string }> = async (req, res, next) => {
             data: null
         })
 
-    } catch (err) { }
+    } catch (err) { 
+        next(new ErrorHandler('INTERNAL SERVER', HttpStatusCode.INTERNAL_SERVER, true))
+    }
 }
 
-// alias
 const aliasForBestsellers: RequestHandler = async (req, res, next) => {
     (req.query.limit as string) = '3';
     (req.query.sort as string) = 'salePrice,price';
@@ -111,7 +111,9 @@ const getCoffeeStats: RequestHandler = async (req, res, next) => {
             status: 'stats',
             data: stats
         })
-    } catch (err) { }
+    } catch (err) {
+        next(new ErrorHandler('INTERNAL SERVER', HttpStatusCode.INTERNAL_SERVER, true, 'Cannot download selected statistics'))
+     }
 }
 
 

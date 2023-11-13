@@ -8,3 +8,4 @@ router.route('/bestsellers').get(coffeesControllers_1.aliasForBestsellers, coffe
 router.route('/').get(coffeesControllers_1.getAllCoffees).post(coffeesControllers_1.createCoffees);
 router.route('/:id').get(coffeesControllers_1.getCoffee).patch(coffeesControllers_1.updateCoffee).delete(coffeesControllers_1.deleteCoffee);
 exports.default = router;
+//# sourceMappingURL=coffeesRoutes.js.map
