@@ -20,6 +20,7 @@ const getAllCoffees = (req, res, next) => __awaiter(void 0, void 0, void 0, func
         // console.log(await coffeeModel.find())
         res.json({
             status: 'success',
+            result: coffeesData.length,
             coffees: coffeesData
         });
     }
@@ -73,6 +74,7 @@ const createCoffees = (req, res, next) => __awaiter(void 0, void 0, void 0, func
         });
     }
     catch (err) {
+        console.log(err);
     }
 });
 exports.createCoffees = createCoffees;

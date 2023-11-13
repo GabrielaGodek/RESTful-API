@@ -13,6 +13,7 @@ const getAllCoffees: RequestHandler = async (req, res, next) => {
 
         res.json({
             status: 'success',
+            result: coffeesData.length,
             coffees: coffeesData
         })
     } catch (err) {
@@ -63,7 +64,7 @@ const createCoffees: RequestHandler = async (req, res, next) => {
             addedCoffee: newCoffee
         })
     } catch (err) {
-
+        console.log(err)
     }
 }
 
