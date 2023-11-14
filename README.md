@@ -1,6 +1,5 @@
 # RESTful API
-
-## Full CRUD operations and advance filtering
+The project allowed for gaining experience in creating a fully functional RESTful API, understanding web application architecture, handling MongoDB database, and using TypeScript in the Node.js environment. The implemented advanced filtering enables efficient data manipulation according to user needs.
 
 ### Installation Guide
 
