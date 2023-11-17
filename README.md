@@ -27,6 +27,8 @@ The project allowed for gaining experience in creating a fully functional RESTfu
 | GET        | /api/v1/coffees?page=2&limit=5                | To display results with pagination             |
 | GET        | /api/v1/coffees/bestsellers                   | Alias for 3 cheapest coffee                    |
 
+Click here to see: [Postman Documentation](https://documenter.getpostman.com/view/29979715/2s9YXpWJpp) for this API
+
 ### Technologies
 
 - [NodeJS](https://nodejs.org/) This is a cross-platform runtime environment built on Chrome's V8 JavaScript engine used in running JavaScript codes on the server. It allows for installation and managing of dependencies and communication with databases.
