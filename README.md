@@ -14,7 +14,7 @@ The project allowed for gaining experience in creating a fully functional RESTfu
 
 ### API Endpoints
 
-| HTTP Verbs | Endpoints                                     | Action                                         |
+| HTTP | Endpoints                                     | Action                                         |
 | ---------- | --------------------------------------------- | ---------------------------------------------- |
 | POST       | /api/v1/coffees                               | To create new a coffee                         |
 | GET        | /api/v1/coffees                               | To retrieve all available coffees              |
