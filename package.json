@@ -4,7 +4,7 @@
   "description": "RESTful API for lazycup application",
   "main": "dist/servers.js",
   "scripts": {
-    "build": "npm install && tsc",
+    "build": "npm install",
     "start": "node ./dist/servers.js"
   },
   "engines": {
