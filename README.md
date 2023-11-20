@@ -4,13 +4,12 @@ The project allowed for gaining experience in creating a fully functional RESTfu
 ### Installation Guide
 
 1. Clone this repository [here](https://github.com/GabrielaGodek/RESTful-API.git)
-2. Run `npm install` to install all dependencies
-3. Run `tsc` to compile TypeScript code to JavaScript and create `dist` folder
+2. Run `npm run build` to install all dependencies and compile TypeScript code to JavaScript and create `dist` folder
+3. Run `npm run start` to connect with MongoDB
 
 ### Usage
 
-1. When `dist` folder is created, type `npm run start` to connect with MongoDB
-2. Connect to the API using Postman on port 3000
+Connect to the API using Postman with address: `http://localhost:3000/api/v1/coffees/`
 
 ### API Endpoints
 
