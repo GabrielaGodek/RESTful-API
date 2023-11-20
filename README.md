@@ -1,4 +1,5 @@
 # RESTful API
+
 The project allowed for gaining experience in creating a fully functional RESTful API, understanding web application architecture, handling MongoDB database, and using TypeScript in the Node.js environment. The implemented advanced filtering enables efficient data manipulation according to user needs.
 
 ### Installation Guide
@@ -13,18 +14,18 @@ Connect to the API using Postman with address: `http://localhost:3000/api/v1/cof
 
 ### API Endpoints
 
-| HTTP | Endpoints                                     | Action                                         |
-| ---------- | --------------------------------------------- | ---------------------------------------------- |
-| POST       | /api/v1/coffees                               | To create new a coffee                         |
-| GET        | /api/v1/coffees                               | To retrieve all available coffees              |
-| GET        | /api/v1/coffees/:id                           | To retrieve details of a single coffee         |
-| PATCH      | /api/v1/coffees/:id                           | To edit the details of a single coffee         |
-| DELETE     | /api/v1/coffees/:id                           | To delete a single coffee                      |
-| GET        | /api/v1/coffees?price[lte]=11&name=Espresso   | To search specific coffee by values            |
-| GET        | /api/v1/coffees?sort=price                    | To sort results by price                       |
-| GET        | /api/v1/coffees?fields=name,description,price | To return only desired values not whole object |
-| GET        | /api/v1/coffees?page=2&limit=5                | To display results with pagination             |
-| GET        | /api/v1/coffees/bestsellers                   | Alias for 3 cheapest coffee                    |
+| HTTP   | Endpoints                                     | Action                                         |
+| ------ | --------------------------------------------- | ---------------------------------------------- |
+| POST   | /api/v1/coffees                               | To create new a coffee                         |
+| GET    | /api/v1/coffees                               | To retrieve all available coffees              |
+| GET    | /api/v1/coffees/:id                           | To retrieve details of a single coffee         |
+| PATCH  | /api/v1/coffees/:id                           | To edit the details of a single coffee         |
+| DELETE | /api/v1/coffees/:id                           | To delete a single coffee                      |
+| GET    | /api/v1/coffees?price[lte]=11&name=Espresso   | To search specific coffee by values            |
+| GET    | /api/v1/coffees?sort=price                    | To sort results by price                       |
+| GET    | /api/v1/coffees?fields=name,description,price | To return only desired values not whole object |
+| GET    | /api/v1/coffees?page=2&limit=5                | To display results with pagination             |
+| GET    | /api/v1/coffees/bestsellers                   | Alias for 3 cheapest coffee                    |
 
 Click here to see: [Postman Documentation](https://documenter.getpostman.com/view/29979715/2s9YXpWJpp) for this API
 

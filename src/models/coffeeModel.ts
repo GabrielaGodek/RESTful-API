@@ -70,7 +70,7 @@ const coffeeSchema = new Schema<CoffeeDoc>({
                 const regex = /.svg$|.jpg$|.jpeg$|.png$/g
                 return regex.test(name);
             },
-            message: 'Upload image should be an image'
+            message: 'Upload file should be an image'
         }
     },
     vegan: {
