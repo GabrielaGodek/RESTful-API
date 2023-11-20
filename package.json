@@ -4,8 +4,11 @@
   "description": "RESTful API for lazycup application",
   "main": "dist/servers.js",
   "scripts": {
-    "build": "tsc",
+    "build": "npm install && tsc",
     "start": "node ./dist/servers.js"
+  },
+  "engines": {
+    "node": "20.3.1"
   },
   "author": "Gabriela Godek",
   "license": "ISC",
