@@ -4,8 +4,8 @@
   "description": "RESTful API for lazycup application",
   "main": "dist/servers.js",
   "scripts": {
-    "start": "nodemon dist/servers.js",
-    "debug": "ndb src/servers.ts"
+    "build": "tsc",
+    "start": "node ./dist/servers.js"
   },
   "author": "Gabriela Godek",
   "license": "ISC",
