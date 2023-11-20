@@ -95,14 +95,14 @@ coffeeSchema.pre('save', function (next: () => void) {
     this.slug = slugify(this.name, { lower: true })
     next();
 })
-    .pre(/^find/, function (next: () => void) {
-        this.find({ vegan: false })
-        next()
-    })
-    .pre('aggregate', function (next: () => void) {
-        this.pipeline().unshift({ $match: { vegan: false } })
-        next()
-    });
+    // .pre(/^find/, function (next: () => void) {
+    //     this.find({ vegan: false })
+    //     next()
+    // })
+    // .pre('aggregate', function (next: () => void) {
+    //     this.pipeline().unshift({ $match: { vegan: false } })
+    //     next()
+    // });
 
 coffeeSchema.virtual('priceDifference').get(function (this: CoffeeDoc) {
     return this.price - (this.salePrice ? this.salePrice : this.price);

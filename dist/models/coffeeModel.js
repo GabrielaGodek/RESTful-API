@@ -82,15 +82,15 @@ coffeeSchema.pre('save', function (next) {
     }
     this.slug = (0, slugify_1.default)(this.name, { lower: true });
     next();
-})
-    .pre(/^find/, function (next) {
-    this.find({ vegan: false });
-    next();
-})
-    .pre('aggregate', function (next) {
-    this.pipeline().unshift({ $match: { vegan: false } });
-    next();
 });
+// .pre(/^find/, function (next: () => void) {
+//     this.find({ vegan: false })
+//     next()
+// })
+// .pre('aggregate', function (next: () => void) {
+//     this.pipeline().unshift({ $match: { vegan: false } })
+//     next()
+// });
 coffeeSchema.virtual('priceDifference').get(function () {
     return this.price - (this.salePrice ? this.salePrice : this.price);
 });
