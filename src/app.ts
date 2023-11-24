@@ -5,7 +5,7 @@ import coffeesRoutes from './routes/coffeesRoutes'
 import ErrorHandler, { HttpStatusCode } from './utils/errorHandler'
 import errorController from './controllers/errorControllers'
 
-const allowedOrigins = ['http://localhost:3000', 'http://lazycup.vercel.app']
+const allowedOrigins = ['http://localhost:3000/products', 'http://lazycup.vercel.app/products']
 
 const app = express();
 app.use(json());
