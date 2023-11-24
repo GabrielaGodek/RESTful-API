@@ -9,11 +9,12 @@ const allowedOrigins = ['http://localhost:3000/products', 'http://lazycup.vercel
 
 const app = express();
 app.use(json());
-app.use(cors({
-    origin: allowedOrigins, 
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-}));
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+  });
 app.use('/api/v1/coffees', coffeesRoutes)
 
 app.all('*', (req: Request, res: Response, next: NextFunction) => {
