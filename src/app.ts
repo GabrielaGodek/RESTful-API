@@ -5,19 +5,20 @@ import coffeesRoutes from './routes/coffeesRoutes'
 import ErrorHandler, { HttpStatusCode } from './utils/errorHandler'
 import errorController from './controllers/errorControllers'
 
-const whiteList = ['http://localhost:5173', 'http://lazycup.vercel.app', 'https://nodejs-database.onrender.com']
-const corsOptions = {
-  origin: function (origin: string | undefined, callback: (arg0: Error | null, arg1: boolean | undefined) => void) {
-    if (!origin || whiteList.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'), false);
-    }
-  }
-}
+// const whiteList = ['http://localhost:5173', 'http://lazycup.vercel.app', 'https://nodejs-database.onrender.com']
+// const corsOptions = {
+//   origin: function (origin: string | undefined, callback: (arg0: Error | null, arg1: boolean | undefined) => void) {
+//     if (!origin || whiteList.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'), false);
+//     }
+//   }
+// }
 const app = express();
 app.use(json());
-app.use(cors(corsOptions))
+app.use(cors())
+// app.use(cors(corsOptions))
 // app.use((req, res, next) => {
 //     res.setHeader('Access-Control-Allow-Origin', '*')
 //     res.header('Access-Control-Allow-Methods', 'GET');
