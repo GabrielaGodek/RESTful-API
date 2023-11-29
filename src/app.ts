@@ -10,9 +10,10 @@ const allowedOrigins = ['http://localhost:3000/products', 'http://lazycup.vercel
 const app = express();
 app.use(json());
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Origin', 'https://lazycup.vercel.app');
+    res.header('Access-Control-Allow-Methods', 'GET');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
     next();
   });
 app.use('/api/v1/coffees', coffeesRoutes)
