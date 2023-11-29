@@ -5,7 +5,7 @@ import coffeesRoutes from './routes/coffeesRoutes'
 import ErrorHandler, { HttpStatusCode } from './utils/errorHandler'
 import errorController from './controllers/errorControllers'
 
-const whiteList = ['http://localhost:5173/', 'http://lazycup.vercel.app/']
+const whiteList = ['http://localhost:5173', 'http://lazycup.vercel.app', 'https://nodejs-database.onrender.com']
 const corsOptions = {
   origin: function (origin: string | undefined, callback: (arg0: Error | null, arg1: boolean | undefined) => void) {
     if (!origin || whiteList.indexOf(origin) !== -1) {
