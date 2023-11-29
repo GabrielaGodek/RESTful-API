@@ -5,14 +5,14 @@ import coffeesRoutes from './routes/coffeesRoutes'
 import ErrorHandler, { HttpStatusCode } from './utils/errorHandler'
 import errorController from './controllers/errorControllers'
 
-const allowedOrigins = ['http://localhost:3000/products', 'http://lazycup.vercel.app/products']
+const allowedOrigins = ['http://localhost:5173/', 'http://lazycup.vercel.app/']
 
 const app = express();
 app.use(json());
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://lazycup.vercel.app');
+    res.setHeader('Access-Control-Allow-Origin', '*')
     res.header('Access-Control-Allow-Methods', 'GET');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.header('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     next();
   });
