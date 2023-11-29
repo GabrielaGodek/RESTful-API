@@ -29,13 +29,27 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.app = void 0;
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = require("body-parser");
+const cors_1 = __importDefault(require("cors"));
 const coffeesRoutes_1 = __importDefault(require("./routes/coffeesRoutes"));
 const errorHandler_1 = __importStar(require("./utils/errorHandler"));
 const errorControllers_1 = __importDefault(require("./controllers/errorControllers"));
 const app = (0, express_1.default)();
 exports.app = app;
 app.use((0, body_parser_1.json)());
-app.use('/api/v1/coffees', coffeesRoutes_1.default);
+app.use((0, cors_1.default)());
+app.options('*', (0, cors_1.default)());
+const corsOptionsDelegate = (req, callback) => {
+    const allowlist = ['http://localhost:5173', 'https://lazycup.vercel.app', 'http://localhost:3000'];
+    let corsOptions;
+    if (allowlist.indexOf(req.header('Origin') || '') !== -1) {
+        corsOptions = { origin: true }; // reflect (enable) the requested origin in the CORS response
+    }
+    else {
+        corsOptions = { origin: false }; // disable CORS for this request
+    }
+    callback(null, corsOptions); // callback expects two parameters: error and options
+};
+app.use('/api/v1/coffees', (0, cors_1.default)(corsOptionsDelegate), coffeesRoutes_1.default);
 app.all('*', (req, res, next) => {
     next(new errorHandler_1.default('NOT FOUND', errorHandler_1.HttpStatusCode.NOT_FOUND, true, 'not existing address'));
 });

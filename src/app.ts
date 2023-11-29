@@ -1,6 +1,6 @@
-import express, { Request, Response, NextFunction } from 'express';
+import express, { Request, Response, NextFunction, RequestHandler } from 'express';
 import { json } from 'body-parser';
-import cors from 'cors';
+import cors, { CorsOptionsDelegate } from 'cors';
 import coffeesRoutes from './routes/coffeesRoutes'
 import ErrorHandler, { HttpStatusCode } from './utils/errorHandler'
 import errorController from './controllers/errorControllers'
@@ -10,7 +10,19 @@ app.use(json());
 app.use(cors())
 app.options('*', cors())
 
-app.use('/api/v1/coffees', coffeesRoutes)
+const corsOptionsDelegate: CorsOptionsDelegate<Request> = (req, callback) => {
+  const allowlist: string[] = ['http://localhost:5173', 'https://lazycup.vercel.app', 'http://localhost:3000'];
+
+  let corsOptions;
+  if (allowlist.indexOf(req.header('Origin') || '') !== -1) {
+    corsOptions = { origin: true }; // reflect (enable) the requested origin in the CORS response
+  } else {
+    corsOptions = { origin: false }; // disable CORS for this request
+  }
+  callback(null, corsOptions); // callback expects two parameters: error and options
+};
+
+app.use('/api/v1/coffees', cors(corsOptionsDelegate), coffeesRoutes);
 
 app.all('*', (req: Request, res: Response, next: NextFunction) => {
     next(new ErrorHandler('NOT FOUND', HttpStatusCode.NOT_FOUND, true, 'not existing address'))
