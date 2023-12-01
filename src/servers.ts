@@ -1,4 +1,3 @@
-import mongodb, { MongoClient, ServerApiVersion } from "mongodb";
 import mongoose from "mongoose";
 import { app } from "./app";
 
@@ -8,8 +7,6 @@ const uri:string =
 async function connect(): Promise<void> {
     try {
         await mongoose.connect(uri, {
-            //   useNewUrlParser: true,
-            //   useUnifiedTopology: true,
         });
         console.log(`connected to MongoDB 🏆`);
     } catch (error) {

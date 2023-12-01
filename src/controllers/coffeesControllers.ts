@@ -1,5 +1,5 @@
 import { RequestHandler } from 'express';
-import { Model, Document } from "mongoose";
+import { Model } from "mongoose";
 import { cofSchema as CoffeeSchema, CoffeeDoc } from '../models/coffeeModel';
 import { APIFeatures } from '../utils/apiFeatures'
 import ErrorHandler, { HttpStatusCode } from '../utils/errorHandler'
