@@ -14,14 +14,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const app_1 = require("./app");
-const uri = "mongodb+srv://g0gab1s:gbdG73ZV8Luj3uqE@lazycup.02salyf.mongodb.net/test?retryWrites=true&w=majority";
+const config_1 = require("./config");
+const uri = `mongodb+srv://${config_1.config.name}:${config_1.config.password}@${config_1.config.dbName}.02salyf.mongodb.net/${config_1.config.collection}?retryWrites=true&w=majority`;
 function connect() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            yield mongoose_1.default.connect(uri, {
-            //   useNewUrlParser: true,
-            //   useUnifiedTopology: true,
-            });
+            yield mongoose_1.default.connect(uri, {});
             console.log(`connected to MongoDB 🏆`);
         }
         catch (error) {

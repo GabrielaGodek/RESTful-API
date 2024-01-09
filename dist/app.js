@@ -42,12 +42,12 @@ const corsOptionsDelegate = (req, callback) => {
     const allowlist = ['http://localhost:5173', 'https://lazycup.vercel.app', 'http://localhost:3000'];
     let corsOptions;
     if (allowlist.indexOf(req.header('Origin') || '') !== -1) {
-        corsOptions = { origin: true }; // reflect (enable) the requested origin in the CORS response
+        corsOptions = { origin: true };
     }
     else {
-        corsOptions = { origin: false }; // disable CORS for this request
+        corsOptions = { origin: false };
     }
-    callback(null, corsOptions); // callback expects two parameters: error and options
+    callback(null, corsOptions);
 };
 app.use('/api/v1/coffees', (0, cors_1.default)(corsOptionsDelegate), coffeesRoutes_1.default);
 app.all('*', (req, res, next) => {
