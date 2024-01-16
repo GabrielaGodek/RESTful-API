@@ -2,9 +2,9 @@
 
 The project allowed for gaining experience in creating a fully functional RESTful API, understanding web application architecture, handling MongoDB database, and using TypeScript in the Node.js environment. The implemented advanced filtering enables efficient data manipulation according to user needs.
 
-### Installation Guide
+## Installation guide
 
-1. Clone this repository [here](https://github.com/GabrielaGodek/RESTful-API.git)
+1. Clone this repository `https://github.com/GabrielaGodek/RESTful-API.git`
 2. Run `npm run build` to install all dependencies and compile TypeScript code to JavaScript and create `dist` folder
 3. Run `npm run start` to connect with MongoDB
 
@@ -12,7 +12,7 @@ The project allowed for gaining experience in creating a fully functional RESTfu
 
 Connect to the API using Postman with address: `http://localhost:3000/api/v1/coffees/`
 
-### API Endpoints
+## API Endpoints
 
 | HTTP   | Endpoints                                     | Action                                         |
 | ------ | --------------------------------------------- | ---------------------------------------------- |
@@ -29,17 +29,17 @@ Connect to the API using Postman with address: `http://localhost:3000/api/v1/cof
 
 Click here to see: [Postman Documentation](https://documenter.getpostman.com/view/29979715/2s9YXpWJpp) for this API
 
-### Technologies
+## Technologies
 
 - [NodeJS](https://nodejs.org/) This is a cross-platform runtime environment built on Chrome's V8 JavaScript engine used in running JavaScript codes on the server. It allows for installation and managing of dependencies and communication with databases.
 - [ExpressJS](https://www.expresjs.org/) This is a NodeJS web application framework.
 - [MongoDB](https://www.mongodb.com/) This is a free open source NOSQL document database with scalability and flexibility. Data are stored in flexible JSON-like documents.
 - [Mongoose ODM](https://mongoosejs.com/) This makes it easy to write MongoDB validation by providing a straight-forward, schema-based solution to model to application data.
 
-### Authors
+## Authors
 
 Gabriela Godek
 
-### License
+## License
 
 This project is available for use under the MIT License.
